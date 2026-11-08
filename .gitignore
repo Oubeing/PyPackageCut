@@ -1,0 +1,40 @@
+# ===== PyPackageCut 专用忽略规则 =====
+
+# 发布版二进制（从 Releases 下载，不纳入源码库）
+PyPackageCut.exe
+*.exe
+
+# 工具自带的嵌入式运行时与第三方库（体积大，属于运行依赖而非源码）
+runtime/
+site-packages/
+
+# 运行时生成的产物
+script/white_files.json
+*_new/
+*_文件移动清单.txt
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build_exe/
+dist/
+
+# PyInstaller 打包产物
+*.spec.bak
+
+# 编辑器 / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 操作系统
+Thumbs.db
+Desktop.ini
+
+# 虚拟环境
+venv/
+.venv/
+env/

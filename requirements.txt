@@ -1,0 +1,4 @@
+# PyPackageCut 从源码运行所需的依赖
+# 安装：pip install -r requirements.txt
+PyQt5>=5.15
+psutil>=5.9

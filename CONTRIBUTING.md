@@ -5,7 +5,7 @@
 ## 开发环境
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/your-username/PyPackageCut.git
+git clone https://github.com/Oubeing/PyPackageCut.git
 cd PyPackageCut
 
 # 2. 创建虚拟环境（可选）

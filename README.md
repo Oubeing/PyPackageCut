@@ -109,6 +109,8 @@ PyPackageCut/
 │   └── white_files.json     # 运行时生成（已 gitignore）
 ├── tests/
 │   └── test_cutcore.py      # 核心引擎自动化测试
+├── tools/
+│   └── package_release.py   # 一键发布打包（产可分发的目录 / zip）
 ├── build/
 │   └── PyPackageCut.spec    # PyInstaller 打包配置
 ├── LICENSE                  # MIT
@@ -150,9 +152,33 @@ pyinstaller build/PyPackageCut.spec
 
 ## 发布与分发
 
-项目支持两种分发方式：
+### 一键产出发布包（推荐）
 
-1. **PyInstaller 单文件 exe**：如上构建，适合一般用户。
+仓库自带 `tools/package_release.py`，一条命令把运行依赖与文档打包成可直接分发的目录 / zip：
+
+```bash
+# 默认产出 dist/PyPackageCut-v1.0.0/ 目录 + dist/PyPackageCut-v1.0.0.zip（含 SHA256）
+python tools/package_release.py
+
+# 仅目录 / 仅 zip / 自定义输出 / 先预览不写文件 / 重新打包前清空
+python tools/package_release.py --no-zip
+python tools/package_release.py --no-dir
+python tools/package_release.py -o build/out --name PyPackageCut
+python tools/package_release.py --dry-run
+python tools/package_release.py --clean
+```
+
+脚本会自动：
+- 收集 `PyPackageCut.exe`、`PyPackageCut.int`、`script/`、`runtime/`、`site-packages/` 五个必需组件（缺任一会报错，绝不静默产出残缺包）；
+- 附带 `README.md` / `LICENSE` / `CHANGELOG.md`；
+- 排除本机运行残留（`white_files.json`、`__pycache__`、`*_new/`、`*_文件移动清单.txt` 等），保证产出的是干净包；
+- 从 `script/cutcore.py` 或 `pyproject.toml` 推断版本号作为包名。
+
+把生成的 `*.zip` 上传到 GitHub Releases 即可分发；下载者解压后**双击 `PyPackageCut.exe` 即可运行，无需安装 Python**。
+
+### 其他方式
+
+1. **PyInstaller 单文件 exe**：如前所述构建，适合一般用户。
 2. **引导式分发（仓库自带方式）**：将 `script/`、`runtime/`、`site-packages/`、`PyPackageCut.int` 与引导 exe 一同复制即可。
    其中 `PyPackageCut.int` 的内容为：
    ```python

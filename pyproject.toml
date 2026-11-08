@@ -29,6 +29,5 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/your-username/PyPackageCut"
-Repository = "https://github.com/your-username/PyPackageCut"
-# 请将 your-username 替换为你的 GitHub 用户名
+Homepage = "https://github.com/Oubeing/PyPackageCut"
+Repository = "https://github.com/Oubeing/PyPackageCut"

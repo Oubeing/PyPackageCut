@@ -57,7 +57,7 @@
 ## 快速开始
 
 ### 方式一：下载发布版（推荐）
-从 [Releases](https://github.com/your-username/PyPackageCut/releases) 下载 `PyPackageCut.exe`，双击即可运行（无需安装 Python）。
+从 [Releases](https://github.com/Oubeing/PyPackageCut/releases) 下载 `PyPackageCut.exe`，双击即可运行（无需安装 Python）。
 
 ### 方式二：从源码运行
 ```bash
